@@ -23,6 +23,13 @@ Step 3. add your dotfiles
 ...
 ```
 
+Step 4. commit & push your backuped files to github or other place.
+```bash
+git add .
+git commit -a -m "update collected files"
+git push
+```
+
 ## Tips
 
 ### work with system files
@@ -39,8 +46,9 @@ Defaults env_keep += "HOME"
 ```
 
 ## More Usage
+> you can add `-t` to first argument to do a test before really execute.
 
-### collect tracking files
+### Collect tracking files
 > If a file is deploy as symbol link, the file doesn't need to collect.
 ```bash
 # use -t flag to test
@@ -50,7 +58,7 @@ sudo ./dot.py -t collect
 sudo ./dot.py collect
 ```
 
-### deploy tracking files
+### Deploy tracking files
 ```bash
 # use -t flag to test
 sudo ./dot.py -t deploy
@@ -59,12 +67,12 @@ sudo ./dot.py -t deploy
 sudo ./dot.py deploy
 ```
 
-### remove tracking file
+### Remove tracking file
 ```bash
 ./dot.py pop <tracked_file>
 ```
 
-### tracking file with another name
+### Track file with another name
 ```bash
 # track /etc/vimrc named to sys-vimrc
 ./dot.py push --name sys-vimrc /etc/vimrc
@@ -73,10 +81,14 @@ sudo ./dot.py deploy
 ./dot.py push --name my-vimrc $HOME/vimrc
 ```
 
-### tracking file with symbol link
+### Track file with symbol link
 `dot.py` will move file to current directory, and create a symbol link in original position.
 
 The file tracking with symbol link will be update automatical when edit.
 ```bash
 ./dot.py push --symbol $HOME/.vimrc
 ```
+
+
+# License
+This project is licensed under the [MIT](LICENSE) license.
